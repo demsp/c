@@ -26,7 +26,7 @@
 #include "get_num.h"    /* Declares our functions for handling numeric
                            arguments (getInt(), getLong()) */
 
-#include "error_functions.h"  /* Declares our error-handling functions */
+//#include "error_functions.h"  /* Declares our error-handling functions */
 
 /* Unfortunately some UNIX implementations define FALSE and TRUE -
    here we'll undefine them */
