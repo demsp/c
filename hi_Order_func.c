@@ -17,9 +17,9 @@ int sum(int x, int y) // в функцию передаются два целы�
   int k = x + y;  // вычисляем сумму чисел и сохраняем в k
   return k;       // возвращаем значение k
 }
- //указатель на функцию (pfvsrfybt)
+ //указатель на функцию (замыкание)
  int func2(int x){ return x + 100; }
-int func3(int (*_func)(int), int x){ return _func(x) ; }
+int func3(int (*_func)(int), int x){ return _func(x) ; }  //{ return _func(x) * _func(x); }
 int main()
 {
   int r;
@@ -31,15 +31,3 @@ int main()
   printf("func3=  %d\n", func3(func2, 11));  // 100
   return 0;  // поэтому getchar() вызываем дважжы
 }
-
-/*
-#include <stdio.h>
-int f(int x){ return x + 3; }
-int g(int (*func)(int), int x){ return func(x) * func(x); }
-//printf("%d", g(f, 7));
-int main(int argc, char **argv)
-{
-	printf("%d", g(f, 7));  // 100
-	return 0;
-}
-*/
