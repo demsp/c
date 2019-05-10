@@ -27,8 +27,14 @@ int usr_POW2(int value) { return value*value; }
 int (*funcA)(int);       // Указатель
 
 //указатель на функцию (замыкание)
- int func2(int x){ return x + 100; }
-int func3(int (*funcB)(int), int x){ return funcB(x) ; }
+ int incr(int x){ return x + 1; }
+int hiOrd(int (*funcB)(int), int x){ printf("inner x =%d\n",x); return funcB(x) ; }
+
+int variable = 300; // переменная равна 0x1234 храниться по адресу 0x20001F00
+int *pointer = &variable;
+int dispatch300(int (*innerFunc)(int)){ return innerFunc(300) ; }
+
+
 
 int main()
 {
@@ -48,9 +54,9 @@ int main()
       printf("%d\n", usr_ABS(30));   // выводит 30
       printf("%d\n", usr_ABS(-30));   // выводит 30
       printf("%d\n", (*funcA)(30));   // выводит 900
-      
-     // funcB 
-     printf("func3=  %d\n", func3(func2, 11) );  // 100+11=111  
+   // hiOrd
+     printf("hiOrd=  %d\n", hiOrd(incr, 100) );  // 1+100=101  
+      printf("dispatch300=  %d\n", dispatch300(incr) );  // 1+300=301  
   
   return 0;  
 }
