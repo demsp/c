@@ -22,7 +22,7 @@ char _far *dir_name = "DIR";
 // then output Error message
 
         if(outregs.x.cflag != 0) {
-           printf( "Ошибка при удалении каталога: %d",
+           printf( "Error deleting directory: %d",
            outregs.x.ax);
 
 // Get extended information about the Error
