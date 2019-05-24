@@ -1,5 +1,7 @@
 #include <dos.h>
 #include <stdio.h>
+#include <conio.h>
+
 
 union REGS inregs, outregs;
 struct SREGS segregs;
@@ -61,4 +63,5 @@ char _far *dir_name = "DIR";
                outregs.h.bl,
                outregs.h.ch);
         }
+ getch();       
 }
